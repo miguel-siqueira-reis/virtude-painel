@@ -1,7 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import { Table } from "@protonemedia/inertiajs-tables-laravel-query-builder";
 
 defineProps(["user"])
 </script>
@@ -32,7 +31,7 @@ defineProps(["user"])
                         <h3 class="text-3xl font-bold my-5">Perguntas</h3>
                         <div class="questions_item mb-5" v-for="question in user.questions">
                             <h4 class="text-xl font-bold">{{ question.question }}</h4>
-                            <p>{{ question.answer }}</p>
+                            <p>{{ question?.answer ?? '(Não Respondeu Nada)' }}</p>
                         </div>
                     </div>
                 </div>
